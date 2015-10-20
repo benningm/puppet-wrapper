@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ABSTRACT: this script wraps the puppet apply command for scripted execution
+
 # * --detailed-exitcodes:
 #  Provide extra information about the run via exit codes. If enabled, 'puppet
 #  apply' will use the following exit codes:
@@ -17,7 +19,7 @@
 
 PUPPET_BIN=`which puppet`
 
-$PUPPET_BIN apply --detailed-exitcodes $*
+$PUPPET_BIN apply --detailed-exitcodes --color=false $*
 rc="$?"
 
 if [ "$rc" -eq "0" -o "$rc" -eq "2" ] ; then
